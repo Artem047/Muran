@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  width: 100%;
+  margin: auto;
+  max-width: 1600px;
+}
+.catalogImg {
+  background: linear-gradient(89deg, rgba(255, 255, 255, 0) 83.22%, #fff 95.74%),
+    url("images/catalog.png"), lightgray 50% / cover no-repeat;
+  height: 180px;
+  max-width: 1000px;
+  width: 100%;
+}
