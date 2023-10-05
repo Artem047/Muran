@@ -3,6 +3,8 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { BsBasket, BsTelephone } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import NavbarCategory from "./navigation/NavbarCategory";
+import { useContext } from "react";
+import { ShopContext } from "../context/shop-context";
 
 const Navbar = () => {
   return (
@@ -10,9 +12,9 @@ const Navbar = () => {
       <nav className="p-5 flex gap-5 items-center justify-evenly">
         <Link to="basket" className="relative">
           <BsBasket size={35} />
-          <div className="absolute w-5 h-5 bg-red-300 text-white font-semibold right-0 bottom-0 rounded-[50%] flex items-center justify-center translate-x-2	translate-y-2">
-            1
-          </div>
+          {/*<div className="absolute w-5 h-5 bg-red-300 text-white font-semibold right-0 bottom-0 rounded-[50%] flex items-center justify-center translate-x-2	translate-y-2">
+            0
+          </div>*/}
         </Link>
         <button className="flex items-center w-[200px]">
           <AiOutlineSearch size={25} className="mr-2" />

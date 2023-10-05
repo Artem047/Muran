@@ -1,14 +1,22 @@
 import { useLocation, useParams } from "react-router-dom";
 import { BsBasket } from "react-icons/bs";
+import { useContext } from "react";
+import { ShopContext } from "../context/shop-context";
 
 const ProductCard = () => {
   const { productId } = useParams();
   const location = useLocation();
   const productItem = location.state?.productItem;
+  const { addToCart } = useContext(ShopContext);
+
+  const handleAddToCart = () => {
+    addToCart(productItem.id);
+    alert("Товар добавлен в корзину");
+  };
 
   return (
     <div className="py-12">
-      <div className="flex items-center pl-[210px]">
+      <div className="flex items-center pl-[280px]">
         <div className="flex items-center gap-6">
           <h1 className="text-5xl text-[#372821] font-black">Главная</h1>
           <span className="text-xl pt-4">\{productId}</span>
@@ -51,7 +59,9 @@ const ProductCard = () => {
                     {productItem.price}
                     <sup className="font-normal">$</sup>
                   </span>
-                  <button className="w-[200px] h-14 m-auto bg-[#F2F2F2] flex justify-center items-center gap-5 text-lg border border-[#372821]">
+                  <button
+                    onClick={handleAddToCart}
+                    className="w-[200px] h-14 m-auto bg-[#F2F2F2] flex justify-center items-center gap-5 text-lg border border-[#372821]">
                     <BsBasket size={25} />
                     <span>В корзину</span>
                   </button>

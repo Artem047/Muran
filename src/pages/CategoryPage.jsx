@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { dataCategoryProduct } from "../data/data";
 import NumberPage from "../components/NumberPage";
 
@@ -12,7 +11,7 @@ const CategoryPage = () => {
       </div>
       <div className="pt-[125px] grid grid-cols-2 grid-rows-2 gap-10">
         {dataCategoryProduct.map((item) => (
-          <Link
+          <div
             className="w-[350px] h-[160px] bg-[#F3F0EC] py-6 px-9 relative"
             key={item.id}>
             <h2 className="text-[#372821] text-xl font-bold">{item.text}</h2>
@@ -23,7 +22,7 @@ const CategoryPage = () => {
               className="absolute top-0 right-0"
             />
             <img src={item.logo} alt="" className="absolute bottom-0 left-5" />
-          </Link>
+          </div>
         ))}
       </div>
     </div>
