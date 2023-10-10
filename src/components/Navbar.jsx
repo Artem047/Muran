@@ -3,10 +3,12 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { BsBasket, BsTelephone } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import NavbarCategory from "./navigation/NavbarCategory";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ShopContext } from "../context/shop-context";
+import { dataProduct } from "../data/utils/dataProduct";
 
 const Navbar = () => {
+  const { setSearchQuery } = useContext(ShopContext);
   return (
     <header>
       <nav className="p-5 flex gap-5 items-center justify-evenly">
@@ -22,12 +24,12 @@ const Navbar = () => {
             type="text"
             placeholder="Поиск"
             className="w-full h-full p-2 border-b outline-none"
+            onChange={(e) => setSearchQuery(e.target.value)}
           />
         </button>
         <Link to="/">
           <img src={logo} alt="" />
         </Link>
-
         <div className="flex gap-5">
           <Link to="tel:+7 (999) 131-32-49" className="flex items-center gap-4">
             <BsTelephone size={25} />

@@ -39,16 +39,7 @@ const FooterNavigation = () => {
               to="https://yandex.ru/maps/-/CDUBQCZp"
               className="flex items-center gap-3">
               <FaMapPin size={20} color="black" />
-              <p>Россия, г. Бавлы Пионерская 15</p>
-            </Link>
-          </li>
-          <li>
-            <Link
-              target="blank"
-              to="https://yandex.ru/maps/-/CDUBaRJw"
-              className="flex items-center gap-3">
-              <FaMapPin size={20} color="black" />
-              <p>Россия, г. Альметьевск, Джалиля 32</p>
+              <p>г. Москва, ул. Краснобогатырская 38/2</p>
             </Link>
           </li>
         </ul>

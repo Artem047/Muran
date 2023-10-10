@@ -1,7 +1,17 @@
+import { useContext } from "react";
 import { dataProduct } from "../../data/utils/dataProduct";
 import Product from "./Product";
+import { ShopContext } from "../../context/shop-context";
 
 const Shop = () => {
+  const { searchQuery } = useContext(ShopContext);
+
+  const filteredProducts = dataProduct.flatMap((product) =>
+    product.item.filter((item) =>
+      item.titleProduct.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+  );
+
   return (
     <div className="py-12">
       <div className="flex items-center pl-[280px]">
@@ -12,11 +22,9 @@ const Shop = () => {
         <div className="catalogImg"></div>
       </div>
       <div className="pt-24 px-[120px] flex flex-wrap gap-20 justify-center">
-        {dataProduct.map((product) =>
-          product.item.map((item) => {
-            return <Product data={item} key={item.id} />;
-          })
-        )}
+        {filteredProducts.map((product) => {
+          return <Product data={product} key={product.id} />;
+        })}
       </div>
     </div>
   );

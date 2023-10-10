@@ -3,7 +3,7 @@ import FooterNavigation from "./navigation/FooterNavigation";
 
 const Footer = () => {
   return (
-    <footer className="w-full h-full px-[100px] bg-[#F2EFEB]">
+    <footer className="w-full h-full px-[100px]">
       <section className="flex justify-center gap-[140px]">
         <article className="flex gap-5 flex-col">
           <div className="flex items-center py-2">

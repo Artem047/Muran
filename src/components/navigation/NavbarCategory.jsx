@@ -7,13 +7,14 @@ const NavbarCategory = () => {
         <Link to="/">Главная</Link>
       </li>
       <li>
+        <Link to="about">О компании</Link>
+      </li>
+      <li>
         <Link to="catalog">Продукция</Link>
       </li>
+
       <li>
         <Link to="contact">Контакты</Link>
-      </li>
-      <li>
-        <Link to="delivery">Доставка</Link>
       </li>
     </ul>
   );

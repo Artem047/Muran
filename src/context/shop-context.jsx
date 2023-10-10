@@ -17,6 +17,7 @@ const getDefaultCart = (dataProduct) => {
 
 export const ShopContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(getDefaultCart(dataProduct));
+  const [searchQuery, setSearchQuery] = useState("");
 
   const getTotalCartAmount = (dataProduct) => {
     let totalAmount = 0;
@@ -52,6 +53,8 @@ export const ShopContextProvider = ({ children }) => {
 
   const contextValue = {
     cartItems,
+    searchQuery,
+    setSearchQuery,
     removeFromCart,
     addToCart,
     updateCartItemCount,

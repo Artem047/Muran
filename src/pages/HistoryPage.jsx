@@ -2,8 +2,27 @@ import { BsArrowDown } from "react-icons/bs";
 import { FaPlay } from "react-icons/fa";
 import historyBanner from "../images/historyBanner.png";
 import NumberPage from "./../components/NumberPage";
+import { useState } from "react";
+import Modal from "../components/Modal";
 
 const HistoryPage = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+  const handleLearnMoreClick = () => {
+    const servicesElement = document.getElementById("shop");
+    if (servicesElement) {
+      servicesElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="relative flex">
       <img src={historyBanner} alt="history" />
@@ -22,15 +41,20 @@ const HistoryPage = () => {
             Gel — волшебная палочка в мире
           </p>
           <div className="flex items-center pt-16">
-            <button className="w-[230px] flex justify-center gap-7 items-center h-[60px] bg-[#F2F2F2]">
+            <button
+              onClick={handleLearnMoreClick}
+              className="w-[230px] flex justify-center gap-7 items-center h-[60px] bg-[#F2F2F2]">
               <BsArrowDown size={30} />
               <p className="text-lg">В магазин</p>
             </button>
-            <button className="border flex justify-center items-center border-[#372821] w-14 h-14 ml-[100px]">
+            <button
+              onClick={openModal}
+              className="border flex justify-center items-center border-[#372821] w-14 h-14 ml-[100px]">
               <FaPlay size={15} />
             </button>
             <hr className="border w-[45px] border-[#372821]" />
             <p className="pl-8 text-lg">Краткий видео-обзор</p>
+            <Modal active={showModal} setActive={setShowModal} />
           </div>
         </article>
       </section>

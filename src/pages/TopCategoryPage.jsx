@@ -2,8 +2,8 @@ import NumberPage from "../components/NumberPage";
 import BigMe05 from "../images/BigMe05.png";
 import logoTopCatal from "../images/logoTopCatal.png";
 import { BsArrowRight, BsBasket } from "react-icons/bs";
-import ener1 from "../images/energy/ener1.png";
 import { dataTopCategoryProduct } from "../data/data";
+import { Link } from "react-router-dom";
 
 const TopCategoryPage = () => {
   return (
@@ -15,17 +15,19 @@ const TopCategoryPage = () => {
           <p className="pt-2 text-lg">Косметики MURAN</p>
         </div>
       </div>
-      <section className="px-[150px] pt-[120px] flex gap-20">
+      <section className="px-[150px] pt-[120px] flex gap-20" id="shop">
         <article className="flex flex-col items-end">
           <div className="w-[400px] h-[650px] relative bg-[#F2EFEB]">
             <h2 className="text-[#372821] text-2xl font-bold p-10">ENERGY</h2>
             <img src={logoTopCatal} alt="" className="absolute top-0" />
             <img src={BigMe05} alt="" className="absolute bottom-0 right-0" />
           </div>
-          <button className="w-[200px] flex items-center justify-between px-5 h-14 border mt-10 border-[#372821]">
+          <Link
+            to="/catalog"
+            className="w-[200px] flex items-center justify-between px-5 h-14 border mt-10 border-[#372821]">
             <BsArrowRight size={25} />
             <p>Все товары</p>
-          </button>
+          </Link>
         </article>
         <article className="grid grid-cols-2 grid-rows-2 gap-[100px]">
           {dataTopCategoryProduct.map((item) => (
@@ -37,10 +39,12 @@ const TopCategoryPage = () => {
                 <p>{item.title}</p>
                 <span>{item.price}$</span>
               </div>
-              <button className="w-[200px] h-14 m-auto bg-[#F2F2F2] flex justify-center items-center gap-5 text-lg border border-[#372821]">
+              <Link
+                to="/catalog"
+                className="w-[200px] h-14 m-auto bg-[#F2F2F2] flex justify-center items-center gap-5 text-lg border border-[#372821]">
                 <BsBasket size={25} />
                 <span>В корзину</span>
-              </button>
+              </Link>
             </div>
           ))}
         </article>
